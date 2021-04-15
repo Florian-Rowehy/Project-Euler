@@ -1,2 +1,5 @@
-## These are the part of Project Euler Challenges of <a href="https://freecodecamp.org">freeCodeCamp</a>
-Check Them <a href="https://www.freecodecamp.org/learn/coding-interview-prep/project-euler/">here</a>
+# PROJECT EULER
+
+## These are part of [FreeCodeCamp](https://freecodecamp.org) Project Euler Challenges.
+
+Check Them [here](https://www.freecodecamp.org/learn/coding-interview-prep/project-euler/)
