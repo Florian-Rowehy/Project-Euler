@@ -5,7 +5,8 @@
 */
 
 function largestPrimeFactor(n) {
-  let prime = 2, maxPrime = 1;
+  let prime = 2,
+    maxPrime = 1;
 
   while (prime <= n) {
     if (n % prime === 0) {

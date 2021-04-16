@@ -5,17 +5,15 @@
 */
 
 function fiboEvenSum(n) {
-    let prevVal = 0;
-    let val = 1;
-    let sum = 0;
-    while(val<n){
-      let temp = val;
-      val += prevVal;
-      prevVal = temp;
+  let prevVal = 0;
+  let val = 1;
+  let sum = 0;
+  while (val < n) {
+    let temp = val;
+    val += prevVal;
+    prevVal = temp;
 
-      if (val % 2 === 0) 
-        sum += val;
-    }
-    return sum;
+    if (val % 2 === 0) sum += val;
   }
-  
+  return sum;
+}
