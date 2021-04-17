@@ -24,17 +24,19 @@ function sumOfNonAbundantNumbers(n) {
     for (let i = 12; i < n; i++) {
         if (isAbundantNumber(i)) abundantNbs[abundantNbs.length] = i;
     }
-    const set = new Set();
-    for (let i=0; i<abundantNbs.length; i++) {
-        for (let j=i; j<abundantNbs.length; j++) {
-            set.add(abundantNbs[i] + abundantNbs[j]);
-        }
-    }
+    
     let totalSumN = n * (n+1) / 2;
     let sumNbWrittenWithAbundantNumbers = 0;
-    set.forEach(value => {
-        if (value <= n ) sumNbWrittenWithAbundantNumbers += value;
-    });
+    const addedValues = {};
+    for (let i=0; i<abundantNbs.length; i++) {
+        for (let j=i; j<abundantNbs.length; j++) {
+            const value = abundantNbs[i] + abundantNbs[j];
+            if (value <= n && !addedValues[value]) { 
+                sumNbWrittenWithAbundantNumbers += value;
+                addedValues[value] = true;
+            }
+        }
+    }
     return totalSumN - sumNbWrittenWithAbundantNumbers;
 }
 
