@@ -32,29 +32,24 @@
 // https://medium.com/@urna.hybesis/pathfinding-algorithms-the-four-pillars-1ebad85d4c6b
 
 function maximumPathSumI(triangle) {
-    let columnSum = [...triangle[0]];
-
-    for (let row=1; row<triangle.length; row++) {
-        console.log(columnSum);
-        console.log('');
-        console.log(triangle[row]);
-
+    let columnSum = [];
+    let maxPathSum = 0;
+    for (let row=0; row<triangle.length; row++) {
         let newColumnSum = [];
         for (let column=0; column<triangle[row].length; column++) {
             let maxPreviousValue = getMaxPreviousValueForPosition(column, columnSum);
+            let pathSum = maxPreviousValue + triangle[row][column];
+            if (maxPathSum < pathSum) maxPathSum = pathSum;
             newColumnSum[column] = maxPreviousValue + triangle[row][column];
         }
         columnSum = newColumnSum;
     }
-
-    console.log(columnSum);
-    return Math.max(...columnSum);
+    return maxPathSum;
 }
 
 function getMaxPreviousValueForPosition(position, previousValues) {
     let maxValue = previousValues[position] || 0;
     if (position > 0 && maxValue < previousValues[position-1]) maxValue = previousValues[position-1];
-    if (position < previousValues.length && maxValue < previousValues[position+1]) maxValue = previousValues[position+1];
     return maxValue;
 }
 
